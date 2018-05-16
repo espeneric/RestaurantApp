@@ -8,20 +8,28 @@
 
 /* Begin PBXBuildFile section */
 		E272680D20AC158000DB15BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E272680C20AC158000DB15BF /* AppDelegate.swift */; };
-		E272680F20AC158000DB15BF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E272680E20AC158000DB15BF /* ViewController.swift */; };
 		E272681220AC158000DB15BF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E272681020AC158000DB15BF /* Main.storyboard */; };
 		E272681420AC158100DB15BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E272681320AC158100DB15BF /* Assets.xcassets */; };
 		E272681720AC158100DB15BF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E272681520AC158100DB15BF /* LaunchScreen.storyboard */; };
+		E272682320AC1C9D00DB15BF /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E272682220AC1C9D00DB15BF /* CategoryTableViewController.swift */; };
+		E272682520AC1CB500DB15BF /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E272682420AC1CB500DB15BF /* MenuTableViewController.swift */; };
+		E272682720AC1CC300DB15BF /* OrderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E272682620AC1CC300DB15BF /* OrderTableViewController.swift */; };
+		E272682920AC1EC400DB15BF /* MenuItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E272682820AC1EC400DB15BF /* MenuItemDetailViewController.swift */; };
+		E272682B20AC1FEE00DB15BF /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E272682A20AC1FEE00DB15BF /* MenuItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		E272680920AC158000DB15BF /* RestaurantApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RestaurantApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E272680C20AC158000DB15BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E272680E20AC158000DB15BF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E272681120AC158000DB15BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E272681320AC158100DB15BF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E272681620AC158100DB15BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E272681820AC158100DB15BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E272682220AC1C9D00DB15BF /* CategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
+		E272682420AC1CB500DB15BF /* MenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
+		E272682620AC1CC300DB15BF /* OrderTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTableViewController.swift; sourceTree = "<group>"; };
+		E272682820AC1EC400DB15BF /* MenuItemDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemDetailViewController.swift; sourceTree = "<group>"; };
+		E272682A20AC1FEE00DB15BF /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MenuItem.swift; path = RestaurantApp/Models/MenuItem.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,13 +63,33 @@
 			isa = PBXGroup;
 			children = (
 				E272680C20AC158000DB15BF /* AppDelegate.swift */,
-				E272680E20AC158000DB15BF /* ViewController.swift */,
+				E272681F20AC15A600DB15BF /* ViewControllers */,
+				E272681E20AC159E00DB15BF /* Models */,
 				E272681020AC158000DB15BF /* Main.storyboard */,
 				E272681320AC158100DB15BF /* Assets.xcassets */,
 				E272681520AC158100DB15BF /* LaunchScreen.storyboard */,
 				E272681820AC158100DB15BF /* Info.plist */,
 			);
 			path = RestaurantApp;
+			sourceTree = "<group>";
+		};
+		E272681E20AC159E00DB15BF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E272682A20AC1FEE00DB15BF /* MenuItem.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E272681F20AC15A600DB15BF /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				E272682220AC1C9D00DB15BF /* CategoryTableViewController.swift */,
+				E272682420AC1CB500DB15BF /* MenuTableViewController.swift */,
+				E272682620AC1CC300DB15BF /* OrderTableViewController.swift */,
+				E272682820AC1EC400DB15BF /* MenuItemDetailViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,8 +163,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E272680F20AC158000DB15BF /* ViewController.swift in Sources */,
+				E272682920AC1EC400DB15BF /* MenuItemDetailViewController.swift in Sources */,
+				E272682B20AC1FEE00DB15BF /* MenuItem.swift in Sources */,
+				E272682720AC1CC300DB15BF /* OrderTableViewController.swift in Sources */,
 				E272680D20AC158000DB15BF /* AppDelegate.swift in Sources */,
+				E272682320AC1C9D00DB15BF /* CategoryTableViewController.swift in Sources */,
+				E272682520AC1CB500DB15BF /* MenuTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,6 +315,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SUV78YK42U;
 				INFOPLIST_FILE = RestaurantApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -301,6 +334,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SUV78YK42U;
 				INFOPLIST_FILE = RestaurantApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
