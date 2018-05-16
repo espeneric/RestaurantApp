@@ -16,6 +16,7 @@
 		E272682720AC1CC300DB15BF /* OrderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E272682620AC1CC300DB15BF /* OrderTableViewController.swift */; };
 		E272682920AC1EC400DB15BF /* MenuItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E272682820AC1EC400DB15BF /* MenuItemDetailViewController.swift */; };
 		E272682B20AC1FEE00DB15BF /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E272682A20AC1FEE00DB15BF /* MenuItem.swift */; };
+		E272682D20AC260F00DB15BF /* IntermediaryModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = E272682C20AC260F00DB15BF /* IntermediaryModels.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		E272682620AC1CC300DB15BF /* OrderTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTableViewController.swift; sourceTree = "<group>"; };
 		E272682820AC1EC400DB15BF /* MenuItemDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemDetailViewController.swift; sourceTree = "<group>"; };
 		E272682A20AC1FEE00DB15BF /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MenuItem.swift; path = RestaurantApp/Models/MenuItem.swift; sourceTree = SOURCE_ROOT; };
+		E272682C20AC260F00DB15BF /* IntermediaryModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntermediaryModels.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 			isa = PBXGroup;
 			children = (
 				E272682A20AC1FEE00DB15BF /* MenuItem.swift */,
+				E272682C20AC260F00DB15BF /* IntermediaryModels.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -169,6 +172,7 @@
 				E272680D20AC158000DB15BF /* AppDelegate.swift in Sources */,
 				E272682320AC1C9D00DB15BF /* CategoryTableViewController.swift in Sources */,
 				E272682520AC1CB500DB15BF /* MenuTableViewController.swift in Sources */,
+				E272682D20AC260F00DB15BF /* IntermediaryModels.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
