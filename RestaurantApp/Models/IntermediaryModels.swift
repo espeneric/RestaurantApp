@@ -13,7 +13,7 @@ import Foundation
 
 //MARK: Intermediary models. API returns a list of categories under the key categories. Similarly to decoding the data that contains menu items you'll need an intermediate object.
 
-struct Categories : Codable{
+struct Categories : Codable {
     let categories: [String]
 }
 
