@@ -11,7 +11,12 @@ import UIKit
 
 class MenuController  {
     
+    
+    
+    //MARK: shared instance of MenuController for the 3 requests.
     static let shared = MenuController()
+    
+    
     
     //MARK: Do not forget to update the info.plist for allowing http connections.
     let baseURL = URL(string: "http://localhost:8090")!
@@ -29,7 +34,9 @@ class MenuController  {
                 let jsonDictionary = try? JSONSerialization.jsonObject(with: data) as? [String: Any],
                 let categories = jsonDictionary?["categories"] as? [String] {
                 completion(categories)
+               //print("\(String(describing: response)) and \(String(describing: error))") //
             } else {
+                //print("\(String(describing: response)) and \(String(describing: error))") //
                 completion(nil)
             }
         }
@@ -49,7 +56,7 @@ class MenuController  {
     
     
     
-    func fetchMenuItems(categoryName: String, completion: @escaping ([MenuItem?]) -> Void) {
+    func fetchMenuItems(categoryName: String, completion: @escaping ([MenuItem]?) -> Void ) {
         
         let initialMenuURL = baseURL.appendingPathComponent("menu")
         var components = URLComponents(url: initialMenuURL, resolvingAgainstBaseURL: true)!
@@ -65,8 +72,10 @@ class MenuController  {
             if let data = data,
                 let menuItems = try? jsonDecoder.decode(MenuItems.self, from: data) {
                 completion(menuItems.items)
+                print("\(String(describing: response)) and \(String(describing: error))") //
             } else {
-                completion([nil])
+                print("\(String(describing: response)) and \(String(describing: error))") //
+                completion(nil)
             }
             
         }
@@ -88,7 +97,7 @@ class MenuController  {
         
         
         
-        //MARK: Telling the server what kind of data we are sending. -JSON
+        //MARK: Telling the server what kind of data we are sending. - JSON
         var request = URLRequest(url: orderURL)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -118,7 +127,6 @@ class MenuController  {
         }
         task.resume()
     }
-    
     
     
     

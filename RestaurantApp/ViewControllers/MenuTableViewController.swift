@@ -8,44 +8,118 @@
 
 import UIKit
 
+
 class MenuTableViewController: UITableViewController {
 
+    
+    
+    
+    
+    
+    //MARK: Holding the values.
+    var category: String!
+    var menuItems = [MenuItem]()
+    
+    
+    //MARK: Update UI
+    
+    
+    func updateUI(with menuItems: [MenuItem]) {
+        DispatchQueue.main.async {
+            self.menuItems = menuItems
+            self.tableView.reloadData()
+        }
+    }
+    
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        
+        //MARK: Title of the view matches the passed data in category.
+        title = category.capitalized
+        
+        //MARK: Networking req
+        MenuController.shared.fetchMenuItems(categoryName: category) { (menuItems) in
+            if let menuItems = menuItems {
+                self.updateUI(with: menuItems)
+            }
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    // MARK: - Configuring the table view.
 
     // MARK: - Table view data source
 
+    /*
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 0
     }
-
+ */
+    
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return menuItems.count
     }
 
-    /*
+    
+    
+    
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: PropertyKeys.menuCellIdentifier, for: indexPath)
+        configureCell(cell: cell, forItemAt: indexPath)
         return cell
     }
-    */
+    
+    
+    
+    //MARK: separate function. Reusage.
+    func configureCell(cell: UITableViewCell, forItemAt indexPath: IndexPath) {
+        let menuItem = menuItems[indexPath.row]
+        cell.textLabel?.text = menuItem.name
+        //MARK: $%.2f tells the initializer that the argument should be displayed with two digits of precision.
+        cell.detailTextLabel?.text = String(format: "$%.2f", menuItem.price)
+    }
+ 
+ 
+    
+    
+    
+    //MARK: MenuDetailSegue. Passing the data.
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == PropertyKeys.menuDetailSegueIdentifier { //checking the segue identifier
+            let menuDetailViewController = segue.destination as! MenuItemDetailViewController //downcasting
+            let index = tableView.indexPathForSelectedRow!.row //passing the data for the SELECTED index at the moment.
+            menuDetailViewController.menuItem = menuItems[index] // sending this data to the menuItem object in the new view.
+        }
+    }
+ 
+ 
+    
+    
+    
+ 
 
     /*
     // Override to support conditional editing of the table view.

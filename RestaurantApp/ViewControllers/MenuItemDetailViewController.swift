@@ -21,6 +21,15 @@ class MenuItemDetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
+    //MARK: Holding the passed value.
+    
+    var menuItem: MenuItem!
+    
+    
+    
+    
+    
 
     /*
     // MARK: - Navigation
