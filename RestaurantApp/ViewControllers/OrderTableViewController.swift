@@ -39,8 +39,10 @@ class OrderTableViewController: UITableViewController, AddToOrderDelegate {
         
         if menuItems.count == 0 {
             submitButton.isEnabled = false
+            editButtonItem.isEnabled = false
         } else {
             submitButton.isEnabled = true
+            editButtonItem.isEnabled = true
         }
     }
     
