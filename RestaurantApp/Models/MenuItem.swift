@@ -7,8 +7,7 @@
 //
 
 import Foundation
-
-
+import UIKit
 
 
 
@@ -33,9 +32,18 @@ struct MenuItem : Codable {
         case imageURL = "image_url"
     }
     
+    init(id: Int, name: String, description: String, price: Double, category: String, imageURL: URL) {
+        self.id = id
+        self.name = name
+        self.description = description
+        self.price = price
+        self.category = category
+        self.imageURL = imageURL
+    }
     
     
-    //MARK: We are not using init(from:) here hence the custom keys are decoded properly so there is no need for a custom decode/implementation here.
+    
+    
     
     
 }
@@ -57,7 +65,35 @@ struct MenuItems: Codable {
 
 
 
+/*
 
+extension MenuItem {
+    
+    //MARK: Saving data to the disk.
+    static let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+    static let archiveURL = documentsDirectory.appendPathComponent("order").appendingPathExtension("plist")
+    
+    
+    static func saveToFile(order: [MenuItem]) {
+        
+        let propertyListEncoder = PropertyListEncoder()
+        let encodedOrder = try? propertyListEncoder.encode(order)
+        try? encodedOrder?.write(to: MenuItem.archiveURL, options: .noFileProtection)
+    }
+    
+    
+    
+    
+    static func loadFromFile() -> [MenuItem]? {
+        
+        guard let codedOrders = try? Data(contentsOf: archiveURL) else { return nil }
+        let decoder = PropertyListDecoder()
+        return try? decoder.decode(Array<MenuItem>.self, from: codedOrders)
+    }
+
+    
+}
+*/
 
 
 

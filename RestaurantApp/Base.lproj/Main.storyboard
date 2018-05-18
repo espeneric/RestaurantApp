@@ -277,7 +277,7 @@
                                         <rect key="frame" x="0.0" y="28.5" width="288" height="30"/>
                                         <state key="normal" title="Dismiss"/>
                                         <connections>
-                                            <segue destination="muB-qt-8oA" kind="unwind" unwindAction="unwindToOrderListWithSegue:" id="zga-GB-RGA"/>
+                                            <segue destination="muB-qt-8oA" kind="unwind" identifier="DismissConfirmation" unwindAction="unwindToOrderListWithSegue:" id="zga-GB-RGA"/>
                                         </connections>
                                     </button>
                                 </subviews>
