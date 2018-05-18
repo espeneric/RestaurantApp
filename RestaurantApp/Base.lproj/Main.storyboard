@@ -248,6 +248,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="submitButton" destination="Oha-s2-k34" id="Wib-c7-K0U"/>
                         <segue destination="EAV-LL-74e" kind="showDetail" identifier="ConfirmationSegue" id="n0c-aW-ptV"/>
                     </connections>
                 </tableViewController>

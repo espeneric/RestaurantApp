@@ -107,7 +107,8 @@ class MenuTableViewController: UITableViewController {
                     currentIndexPath != indexPath {  //MARK: if the indexpath is changed, skip setting the image.
                     return
                 }
-           cell.imageView?.image = image
+            cell.imageView?.image = image
+            self.tableView.reloadData()
             
             }
         }

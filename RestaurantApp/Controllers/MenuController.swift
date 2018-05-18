@@ -145,10 +145,10 @@ class MenuController  {
             if let data = data,
                 let image = UIImage(data: data  ) {
                 completion(image)
-                print("\(String(describing: response)) and \(String(describing: error))") //
+              //  print("\(String(describing: response)) and \(String(describing: error))") //
             } else {
                 completion(nil)
-                print("\(String(describing: response)) and \(String(describing: error))") //
+               // print("\(String(describing: response)) and \(String(describing: error))") //
             }
         }
         task.resume()

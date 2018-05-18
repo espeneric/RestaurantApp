@@ -29,7 +29,23 @@ class OrderTableViewController: UITableViewController, AddToOrderDelegate {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
         navigationItem.leftBarButtonItem = editButtonItem
+        
+        
     }
+    
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        if menuItems.count == 0 {
+            submitButton.isEnabled = false
+        } else {
+            submitButton.isEnabled = true
+        }
+    }
+    
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -82,6 +98,21 @@ class OrderTableViewController: UITableViewController, AddToOrderDelegate {
         cell.textLabel?.text = menuItem.name
         //MARK: $%.2f tells the initializer that the argument should be displayed with two digits of precision.
         cell.detailTextLabel?.text = String(format: "$%.2f", menuItem.price)
+        
+        MenuController.shared.fetchImage(url: menuItem.imageURL) { (image) in
+            guard let image = image else { return }
+            
+            //MARK: Since in tableview cells are re-used we need to check the current indexpath!!
+            
+            DispatchQueue.main.async {
+                if let currentIndexPath = self.tableView.indexPath(for: cell),
+                    currentIndexPath != indexPath {  //MARK: if the indexpath is changed, skip setting the image.
+                    return
+                }
+                cell.imageView?.image = image
+            }
+        }
+        
     }
     
     
@@ -113,6 +144,10 @@ class OrderTableViewController: UITableViewController, AddToOrderDelegate {
     
     
 
+    //MARK: Submit outlet.
+    
+    
+    @IBOutlet weak var submitButton: UIBarButtonItem!
     
     
     //MARK: Presenting an alert with the totals for the order.
