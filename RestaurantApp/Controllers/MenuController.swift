@@ -72,9 +72,9 @@ class MenuController  {
             if let data = data,
                 let menuItems = try? jsonDecoder.decode(MenuItems.self, from: data) {
                 completion(menuItems.items)
-                print("\(String(describing: response)) and \(String(describing: error))") //
+               // print("\(String(describing: response)) and \(String(describing: error))") //
             } else {
-                print("\(String(describing: response)) and \(String(describing: error))") //
+              //  print("\(String(describing: response)) and \(String(describing: error))") //
                 completion(nil)
             }
             
@@ -118,15 +118,62 @@ class MenuController  {
             let jsonDecoder = JSONDecoder()
             if let data = data,
                 let preparationTime = try? jsonDecoder.decode(PreparationTime.self, from: data) {
+               // print("\(String(describing: response)) and \(String(describing: error))") //
                 completion(preparationTime.prepTime)
             } else {
+                // print("\(String(describing: response)) and \(String(describing: error))") //
                 completion(nil)
             }
+            
+            
             
             
         }
         task.resume()
     }
+    
+    
+    
+    //MARK: Fetch Image
+    
+    
+    
+    
+    func fetchImage(url: URL, completion: @escaping (UIImage?) -> Void) {
+        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+            
+            if let data = data,
+                let image = UIImage(data: data  ) {
+                completion(image)
+                print("\(String(describing: response)) and \(String(describing: error))") //
+            } else {
+                completion(nil)
+                print("\(String(describing: response)) and \(String(describing: error))") //
+            }
+        }
+        task.resume()
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     

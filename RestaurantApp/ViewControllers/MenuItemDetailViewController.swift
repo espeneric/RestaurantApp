@@ -14,6 +14,8 @@ class MenuItemDetailViewController: UIViewController {
         super.viewDidLoad()
         
         updateUI()
+        //MARK: Set up the delegate.
+        setupDelegate()
     }
 
     override func didReceiveMemoryWarning() {
@@ -44,7 +46,17 @@ class MenuItemDetailViewController: UIViewController {
         descriptionLabel.text = menuItem.description
         addToOrderButton.layer.cornerRadius = 5.0
         addToOrderButton.backgroundColor = UIColor.blue
+        
+        MenuController.shared.fetchImage(url: menuItem.imageURL) { (image) in
+            guard let image = image else { return }
+            DispatchQueue.main.async {
+                self.imageView.image = image
+            }
+        }
     }
+    
+    
+    
     
     //MARK: Animation for the button.
     
@@ -56,9 +68,25 @@ class MenuItemDetailViewController: UIViewController {
             self.addToOrderButton.transform = CGAffineTransform(scaleX: 3.0, y: 3.0)
             self.addToOrderButton.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
         }
+        delegate?.added(menuItem: menuItem) //pass the data.
     }
     
     
+    
+    //MARK: Delegate
+    
+    var delegate: AddToOrderDelegate? //Initialize the instance.
+    
+    
+    
+    //MARK: Set up the delegate based on the where is located the data which we need.
+    
+    func setupDelegate() {
+        if let navController = tabBarController?.viewControllers?.last as? UINavigationController,
+            let orderTableViewController = navController.viewControllers.first as? OrderTableViewController {
+            delegate = orderTableViewController
+        }
+    }
     
     
     

@@ -8,14 +8,6 @@
 
 import UIKit
 
-struct PropertyKeys {
-    static let categoryCellIdentifier : String  = "CategoryCell"
-    static let menuSegueIdentifier : String = "MenuSegue"
-    static let menuCellIdentifier : String = "MenuCell"
-    static let menuDetailSegueIdentifier : String  = "MenuDetailSegue"
-}
-
-
 
 class CategoryTableViewController: UITableViewController {
     

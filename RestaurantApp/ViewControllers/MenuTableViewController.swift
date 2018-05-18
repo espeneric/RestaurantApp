@@ -97,8 +97,21 @@ class MenuTableViewController: UITableViewController {
         cell.textLabel?.text = menuItem.name
         //MARK: $%.2f tells the initializer that the argument should be displayed with two digits of precision.
         cell.detailTextLabel?.text = String(format: "$%.2f", menuItem.price)
+        MenuController.shared.fetchImage(url: menuItem.imageURL) { (image) in
+            guard let image = image else { return }
+            
+            //MARK: Since in tableview cells are re-used we need to check the current indexpath!!
+            
+            DispatchQueue.main.async {
+                if let currentIndexPath = self.tableView.indexPath(for: cell),
+                    currentIndexPath != indexPath {  //MARK: if the indexpath is changed, skip setting the image.
+                    return
+                }
+           cell.imageView?.image = image
+            
+            }
+        }
     }
- 
  
     
     
@@ -116,6 +129,16 @@ class MenuTableViewController: UITableViewController {
     }
  
  
+    
+    
+    //MARK: Adjust the height of the rows.
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
+    }
+    
+    
+    
     
     
     
