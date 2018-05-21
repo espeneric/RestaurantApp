@@ -14,21 +14,67 @@ class CategoryTableViewController: UITableViewController {
     
     
     
+    //MARK: Error handler:
+    
+    
+    /*
+     
+     var errorMessageLabel: UILabel {
+     let label = UILabel()
+     label.text = "Apologies, something went wrong, please try again later..."
+     label.textAlignment = .center
+     label.numberOfLines = 0
+     labe.ishidden = true
+     return label
+     }
+     
+     */
+
+    
+    func errorHelper() {
+        let errorAlert = UIAlertController(title: "Error", message: "Apologies, something went wrong, please try again later...", preferredStyle: .alert)
+        errorAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(errorAlert, animated: true) {
+            self.networkRequest()
+        }
+        
+    }
+    
+    
+    
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        
-        
-        //MARK: Network request
-        MenuController.shared.fetchCategories { (categories) in
+        networkRequest()
+    }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        networkRequest()
+    }
+    
+    
+     //MARK: Network request
+    func networkRequest() {
+        MenuController.shared.fetchCategories { (categories, error) in
             if let categories = categories {
                 self.updateUI(with: categories)
+            } else {
+                if let _ = error {
+                   self.errorHelper()
+                }
             }
         }
-        
-        
     }
+    
+    
+    
+    
+    
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

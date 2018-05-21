@@ -25,7 +25,7 @@ class MenuController  {
     //MARK: 1GET for categories.
     
     
-    func fetchCategories(completion: @escaping ([String]?) -> Void) {
+    func fetchCategories(completion: @escaping ([String]?, Error?) -> Void) {
         let categoryURL = baseURL.appendingPathComponent("categories")
         let task = URLSession.shared.dataTask(with: categoryURL) { (data, response, error) in
             
@@ -33,11 +33,11 @@ class MenuController  {
             if let data = data,
                 let jsonDictionary = try? JSONSerialization.jsonObject(with: data) as? [String: Any],
                 let categories = jsonDictionary?["categories"] as? [String] {
-                completion(categories)
+                completion(categories, nil)
                //print("\(String(describing: response)) and \(String(describing: error))") //
             } else {
                 //print("\(String(describing: response)) and \(String(describing: error))") //
-                completion(nil)
+                completion(nil, error)
             }
         }
         task.resume()
