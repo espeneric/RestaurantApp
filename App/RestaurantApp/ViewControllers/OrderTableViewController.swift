@@ -29,24 +29,16 @@ class OrderTableViewController: UITableViewController, AddToOrderDelegate {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
         navigationItem.leftBarButtonItem = editButtonItem
-        
-        
-    }
-    
-    
-    
-    override func viewWillAppear(_ animated: Bool) {
-        
-        if menuItems.count == 0 {
-            submitButton.isEnabled = false
-            editButtonItem.isEnabled = false
-        } else {
-            submitButton.isEnabled = true
-            editButtonItem.isEnabled = true
+        updateUI()
+        if let savedMenus =  MenuItem.loadFromFile() {
+            menuItems = savedMenus
+            updateUI()
         }
+        
     }
     
     
+
     
 
     override func didReceiveMemoryWarning() {
@@ -64,7 +56,8 @@ class OrderTableViewController: UITableViewController, AddToOrderDelegate {
         let count  = menuItems.count
         let indexPath = IndexPath(row: count-1, section: 0)
         tableView.insertRows(at: [indexPath], with: .automatic)
-        updateBadgeNumber()
+        MenuItem.saveToFile(order: menuItems)
+        updateUI()
     }
     
     
@@ -73,7 +66,7 @@ class OrderTableViewController: UITableViewController, AddToOrderDelegate {
     //MARK: Hold the value! This one can be presented without any data so it should be a empty collection.
     
     
-    var menuItems = [MenuItem]()
+     var menuItems = [MenuItem]()
     
     
     
@@ -120,9 +113,17 @@ class OrderTableViewController: UITableViewController, AddToOrderDelegate {
     
     
     //MARK: Updating the badge value based on the current amount of orders.
-    func updateBadgeNumber() {
+    func updateUI() {
         let badgeValue = menuItems.count > 0 ? "\(menuItems.count)" : nil
         navigationController?.tabBarItem.badgeValue = badgeValue
+        
+        if menuItems.count == 0 {
+            submitButton.isEnabled = false
+            editButtonItem.isEnabled = false
+        } else {
+            submitButton.isEnabled = true
+            editButtonItem.isEnabled = true
+        }
     }
     
     
@@ -140,7 +141,8 @@ class OrderTableViewController: UITableViewController, AddToOrderDelegate {
         if editingStyle == .delete {
             menuItems.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
-            updateBadgeNumber()
+            MenuItem.saveToFile(order: menuItems)
+            updateUI()
         }
     }
     
@@ -171,6 +173,7 @@ class OrderTableViewController: UITableViewController, AddToOrderDelegate {
         }))
         
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        MenuItem.saveToFile(order: menuItems)
         present(alert, animated: true, completion: nil)
     }
     
@@ -220,7 +223,8 @@ class OrderTableViewController: UITableViewController, AddToOrderDelegate {
         if segue.identifier == PropertyKeys.dismissConfirmation {
             menuItems.removeAll()
             tableView.reloadData()
-            updateBadgeNumber()
+            updateUI()
+            MenuItem.saveToFile(order: menuItems)
         }
         
     }

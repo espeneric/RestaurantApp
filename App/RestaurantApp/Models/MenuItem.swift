@@ -65,14 +65,15 @@ struct MenuItems: Codable {
 
 
 
-/*
+
 
 extension MenuItem {
     
     //MARK: Saving data to the disk.
-    static let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-    static let archiveURL = documentsDirectory.appendPathComponent("order").appendingPathExtension("plist")
-    
+     static let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+     static let archiveURL = documentsDirectory.appendingPathComponent("menu").appendingPathExtension("plist")
+ 
+ 
     
     static func saveToFile(order: [MenuItem]) {
         
@@ -80,8 +81,6 @@ extension MenuItem {
         let encodedOrder = try? propertyListEncoder.encode(order)
         try? encodedOrder?.write(to: MenuItem.archiveURL, options: .noFileProtection)
     }
-    
-    
     
     
     static func loadFromFile() -> [MenuItem]? {
@@ -93,7 +92,7 @@ extension MenuItem {
 
     
 }
-*/
+
 
 
 

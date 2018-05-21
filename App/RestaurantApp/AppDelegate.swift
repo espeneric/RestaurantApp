@@ -23,6 +23,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let urlCache = URLCache(memoryCapacity: 25000000, diskCapacity: 50000000, diskPath: temporaryDirectory)
         URLCache.shared = urlCache
         
+        
+        
+        //MARK: Little touch on the UI.
+        
+        
+        if let savedMenu = MenuItem.loadFromFile() {
+            let rootViewController = self.window?.rootViewController as! UITabBarController
+            let tabArray = rootViewController.tabBar.items! as NSArray
+            let tabItem = tabArray.object(at: 1) as! UITabBarItem
+            tabItem.badgeValue = savedMenu.count > 0 ? "\(savedMenu.count)" : nil
+        }
+        
+        
+        
         return true
     }
 
