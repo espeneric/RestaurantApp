@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -36,6 +37,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         
+        
+        //MARK: User notifications authorization.
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { (permissionGranted, error) in
+            //print(error as Any)
+        }
+ 
         
         return true
     }

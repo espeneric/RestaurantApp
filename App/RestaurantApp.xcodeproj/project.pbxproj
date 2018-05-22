@@ -20,6 +20,7 @@
 		E272682B20AC1FEE00DB15BF /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E272682A20AC1FEE00DB15BF /* MenuItem.swift */; };
 		E272682D20AC260F00DB15BF /* IntermediaryModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = E272682C20AC260F00DB15BF /* IntermediaryModels.swift */; };
 		E272682F20AC27E000DB15BF /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E272682E20AC27E000DB15BF /* MenuController.swift */; };
+		E292186B20B3FD85008306F2 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E292186A20B3FD85008306F2 /* DateExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		E272682A20AC1FEE00DB15BF /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MenuItem.swift; path = RestaurantApp/Models/MenuItem.swift; sourceTree = SOURCE_ROOT; };
 		E272682C20AC260F00DB15BF /* IntermediaryModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntermediaryModels.swift; sourceTree = "<group>"; };
 		E272682E20AC27E000DB15BF /* MenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
+		E292186A20B3FD85008306F2 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 				E272682820AC1EC400DB15BF /* MenuItemDetailViewController.swift */,
 				E272682620AC1CC300DB15BF /* OrderTableViewController.swift */,
 				E2095A4520AEB21B00A42F9D /* OrderConfirmationViewController.swift */,
+				E292186A20B3FD85008306F2 /* DateExtension.swift */,
 				E2095A4720AEB2A200A42F9D /* PropertyKeys.swift */,
 			);
 			path = ViewControllers;
@@ -189,6 +192,7 @@
 				E272682B20AC1FEE00DB15BF /* MenuItem.swift in Sources */,
 				E272682720AC1CC300DB15BF /* OrderTableViewController.swift in Sources */,
 				E272680D20AC158000DB15BF /* AppDelegate.swift in Sources */,
+				E292186B20B3FD85008306F2 /* DateExtension.swift in Sources */,
 				E2095A4620AEB21B00A42F9D /* OrderConfirmationViewController.swift in Sources */,
 				E272682320AC1C9D00DB15BF /* CategoryTableViewController.swift in Sources */,
 				E272682520AC1CB500DB15BF /* MenuTableViewController.swift in Sources */,

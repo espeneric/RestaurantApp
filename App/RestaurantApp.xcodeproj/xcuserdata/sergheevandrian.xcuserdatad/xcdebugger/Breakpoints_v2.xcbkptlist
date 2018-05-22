@@ -2,4 +2,84 @@
 <Bucket
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RestaurantApp/ViewControllers/OrderConfirmationViewController.swift"
+            timestampString = "548673581.58497"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "OrderConfirmationViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RestaurantApp.OrderConfirmationViewController.minutes.getter : Swift.ImplicitlyUnwrappedOptional&lt;Swift.Int&gt;"
+                  moduleName = "RestaurantApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sergheevandrian/Desktop/MayAppleCourses/JSON&amp;Concurrency/Restaurant/RestaurantApp/App/RestaurantApp/ViewControllers/OrderConfirmationViewController.swift"
+                  timestampString = "548667470.934833"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "30"
+                  endingLineNumber = "30"
+                  offsetFromSymbolStart = "84">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RestaurantApp.OrderConfirmationViewController.minutes.setter : Swift.ImplicitlyUnwrappedOptional&lt;Swift.Int&gt;"
+                  moduleName = "RestaurantApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sergheevandrian/Desktop/MayAppleCourses/JSON&amp;Concurrency/Restaurant/RestaurantApp/App/RestaurantApp/ViewControllers/OrderConfirmationViewController.swift"
+                  timestampString = "548667470.938518"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "30"
+                  endingLineNumber = "30"
+                  offsetFromSymbolStart = "122">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RestaurantApp.OrderConfirmationViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; RestaurantApp.OrderConfirmationViewController"
+                  moduleName = "RestaurantApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sergheevandrian/Desktop/MayAppleCourses/JSON&amp;Concurrency/Restaurant/RestaurantApp/App/RestaurantApp/ViewControllers/OrderConfirmationViewController.swift"
+                  timestampString = "548667470.948759"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "30"
+                  endingLineNumber = "30"
+                  offsetFromSymbolStart = "93">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RestaurantApp.OrderConfirmationViewController.init(coder: __ObjC.NSCoder) -&gt; Swift.Optional&lt;RestaurantApp.OrderConfirmationViewController&gt;"
+                  moduleName = "RestaurantApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sergheevandrian/Desktop/MayAppleCourses/JSON&amp;Concurrency/Restaurant/RestaurantApp/App/RestaurantApp/ViewControllers/OrderConfirmationViewController.swift"
+                  timestampString = "548667470.954209"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "30"
+                  endingLineNumber = "30"
+                  offsetFromSymbolStart = "62">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>
