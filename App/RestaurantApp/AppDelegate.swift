@@ -44,6 +44,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
  
         
+        //MARK: Tint color ;))
+        window?.tintColor = .red
         return true
     }
 
